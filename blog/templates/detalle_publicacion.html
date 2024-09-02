@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="text-center">
+    <h1>{{publicacion.titulo}}</h1>
+    <h2 class="my-2 h5 text-muted">{{publicacion.fecha|date:'F jS Y'}}</h2>
+
+    <img src="{{publicacion.imagen.url}}" alt="{{publicacion.titulo}}" class="img-fluid">
+    <div class="my-4">
+        {{publicacion.descripcion|safe}}
+    </div>
+</div>
+{% endblock %}

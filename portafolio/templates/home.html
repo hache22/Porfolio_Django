@@ -1,0 +1,43 @@
+{% extends "layout.html"%}
+{% block content%}
+
+{% load static %}
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/yo-nuevo.jpg' %}">
+    </div>
+    <div class="col-md-8 my-auto p-4">
+        <h1>Soy <strong>Horacio Laphitz<strong></h1>
+        <h3>Python Developer - Data Analyst</h3>
+        <p>Soy un profesional comprometido con la solución de problemas
+            empresariales, destacando por mi meticulosidad en los detalles y la mejora
+            de procesos.
+            Manejo herramientas avanzadas para ETL y tengo dominio de Python, R, SQL,
+            PowerBI, Tableau, así como de modelos de Machine Learning y Deep
+            Learning, Data-as-a-Service, Data Warehouse y Data Lakes.</p>
+        <a href="{% static 'portfolio/cv.pdf'%}" class="btn btn-primary btn-lg rounded-0 my-3">Descargar Curriculum
+            vitae</a>
+    </div>
+
+</header>
+
+<div class="row my-4 text-center">
+    <h3>Mis Proyectos</h3>
+    <p>Estos son todos los Proyectos en los cuales trabaje hasta el <br>Momento </p>
+    {% for proyecto in proyectos %}
+    <div class="col md-4 p-4">
+        <div class="card bg-black card-proyecto">
+            <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}" class="card-img-top" />
+            <div class="card card-body">
+                <h2>{{ proyecto.titulo }}</h2>
+                <p>{{ proyecto.descripcion }}</p>
+                {% if proyecto.url %}
+                <a href="{{proyecto.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{proyecto.url}}</a>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+</div>
